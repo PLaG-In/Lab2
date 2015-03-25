@@ -4,10 +4,9 @@
 #include "stdafx.h"
 float min_elem;
 
-float MultMinElem(float n)
+void MultMinElem(float n)
 {
-	n *= min_elem;
-	return n;
+	cout << n * min_elem << " ";
 }
 
 int CreateVector()
