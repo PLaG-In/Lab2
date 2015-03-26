@@ -9,11 +9,8 @@
 
 #include <stdio.h>
 #include <tchar.h>
-#include <algorithm>
 #include <iostream>
-#include <stdio.h>
-#include <iterator>
-#include <vector>
+#include <string>
 using namespace std;
 
 

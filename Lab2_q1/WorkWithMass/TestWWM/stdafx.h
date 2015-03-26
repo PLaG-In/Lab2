@@ -9,12 +9,13 @@
 
 #include <stdio.h>
 #include <tchar.h>
-#include <algorithm>
-#include <iostream>
-#include <stdio.h>
-#include <iterator>
-#include <vector>
-using namespace std;
+
 
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы
+#define BOOST_TEST_MODULE Task1Tests
+#define BOOST_TEST_INCLUDED
+#pragma warning (disable: 4702)
+#include <boost/test/unit_test.hpp>
+
+// TODO: reference additional headers your program requires here

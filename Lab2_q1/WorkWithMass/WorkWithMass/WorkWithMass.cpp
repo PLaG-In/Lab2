@@ -4,30 +4,29 @@
 #include "stdafx.h"
 float min_elem;
 
-void MultMinElem(float n)
+void MultArrOnMinElem(float &n)
 {
-	cout << n * min_elem << " ";
+	n *= min_elem;
 }
 
-int CreateVector()
+void CreateVector()
 {
 	float elem = 0;
 	size_t i = 0;
-	vector<float> newArr;
+	vector<float> vectOfNum;
 	cout << "Enter array of numbers(enter any letter in the end): ";
 	while (scanf("%f", &elem) == 1)
 	{
-		newArr.push_back(elem);
-		cout << newArr[i++] << " ";
+		vectOfNum.push_back(elem);
+		i++;
 	}
-	sort(newArr.begin(), newArr.end());
-	min_elem = newArr[0];
-	for_each(newArr.begin(), newArr.end(), MultMinElem);
+	min_elem = *min_element(vectOfNum.begin(), vectOfNum.end());
+	for_each(vectOfNum.begin(), vectOfNum.end(), MultArrOnMinElem);
+	sort(vectOfNum.begin(), vectOfNum.end());
 	for (size_t j = 0; j < i; ++j)
 	{
-		cout << newArr[j] << " ";
+		cout << vectOfNum[j] << " ";
 	}
-	return 0;
 }
 
 int main()
