@@ -2,11 +2,28 @@
 //
 
 #include "stdafx.h"
+#include "WorkWithMass.h"
 float min_elem;
 
 void MultArrOnMinElem(float &n)
 {
 	n *= min_elem;
+}
+
+void ProcessVector(vector<float> & vectOfNum)
+{
+	if (!vectOfNum.empty())
+	{
+		min_elem = *min_element(vectOfNum.begin(), vectOfNum.end());
+		for_each(vectOfNum.begin(), vectOfNum.end(), MultArrOnMinElem);
+		sort(vectOfNum.begin(), vectOfNum.end());
+		for (size_t i = 0; i < vectOfNum.size(); ++i)
+		{
+			cout << vectOfNum[i] << " ";
+		}
+	}
+	else
+		cout << "The vector is empty" << endl;
 }
 
 void CreateVector()
@@ -20,13 +37,7 @@ void CreateVector()
 		vectOfNum.push_back(elem);
 		i++;
 	}
-	min_elem = *min_element(vectOfNum.begin(), vectOfNum.end());
-	for_each(vectOfNum.begin(), vectOfNum.end(), MultArrOnMinElem);
-	sort(vectOfNum.begin(), vectOfNum.end());
-	for (size_t j = 0; j < i; ++j)
-	{
-		cout << vectOfNum[j] << " ";
-	}
+	ProcessVector(vectOfNum);
 }
 
 int main()

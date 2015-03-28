@@ -2,35 +2,46 @@
 //
 
 #include "stdafx.h"
+#include "../WorkWithMass/WorkWithMass.h"
 
 using namespace std;
 
-bool VectorsAreEqual(vector<double> const& x, vector<double> const& y)
+bool VectorsAreEqual(vector<float> const& x, vector<float> const& y)
 {
 	return x == y;
 }
 
 BOOST_AUTO_TEST_CASE(EmptyVectorProducesEmptyVector)
 {
-	vector<double> emptyVector;
+	vector<float> emptyVector;
+	ProcessVector(emptyVector);
 	BOOST_CHECK(emptyVector.empty());
+}
+
+BOOST_AUTO_TEST_CASE(VectorWithMinElemEqZero)
+{
+	vector<float> numbers = { 4, 0, 3 };
+	ProcessVector(numbers);
+	BOOST_CHECK(VectorsAreEqual(numbers, { 0, 0, 0 }));
 }
 
 BOOST_AUTO_TEST_CASE(VectorWithoutPositivesDoesntChangeContent)
 {
-	vector<double> numbers = { -4, 0, -3 };
-	auto copy(numbers);
-	BOOST_CHECK(numbers == copy);
+	vector<float> numbers = { -4, -1, -3 };
+	ProcessVector(numbers);
+	BOOST_CHECK(VectorsAreEqual(numbers, { ((-1) * (-4)), ((-3) * (-4)), ((-4) * (-4)) }));
 }
 
 BOOST_AUTO_TEST_CASE(VectorWithOnePositiveElement)
 {
-	vector<double> numbers = { -1, 3 };
-	BOOST_CHECK(VectorsAreEqual(numbers, { 2, 6 }));
+	vector<float> numbers = { -1, 3 };
+	ProcessVector(numbers);
+	BOOST_CHECK(VectorsAreEqual(numbers, { (3 * (-1)), ((-1) * (-1)) }));
 }
 
 BOOST_AUTO_TEST_CASE(VectorWithSeveralPositiveElements)
 {
-	vector<double> numbers = { -1, 1, 2, 3 };
-	BOOST_CHECK(VectorsAreEqual(numbers, { (-1 + 2), (1 + 2), (2 + 2), (3 + 2) }));
+	vector<float> numbers = { -1, 1, 2, 3 };
+	ProcessVector(numbers);
+	BOOST_CHECK(VectorsAreEqual(numbers, { (3 * (-1)), ((-1) * 2), ((-1) * 1), ((-1) * (-1)) }));
 }
