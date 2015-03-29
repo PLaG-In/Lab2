@@ -1,8 +1,10 @@
-// WorkWithMass.cpp: определяет точку входа для консольного приложения.
-//
-
 #include "stdafx.h"
-#include "WorkWithMass.h"
+#include "WorkWithVec.h"
+#include <algorithm>
+#include <numeric>
+
+using namespace std;
+
 float min_elem;
 
 void MultArrOnMinElem(float &n)
@@ -10,20 +12,22 @@ void MultArrOnMinElem(float &n)
 	n *= min_elem;
 }
 
-void ProcessVector(vector<float> & vectOfNum)
+void ProcessVector(std::vector<float> & numbers)
 {
-	if (!vectOfNum.empty())
+	if (!numbers.empty())
 	{
-		min_elem = *min_element(vectOfNum.begin(), vectOfNum.end());
-		for_each(vectOfNum.begin(), vectOfNum.end(), MultArrOnMinElem);
-		sort(vectOfNum.begin(), vectOfNum.end());
-		for (size_t i = 0; i < vectOfNum.size(); ++i)
+		min_elem = *min_element(numbers.begin(), numbers.end());
+		for_each(numbers.begin(), numbers.end(), MultArrOnMinElem);
+		sort(numbers.begin(), numbers.end());
+		for (auto &number : numbers)
 		{
-			cout << vectOfNum[i] << " ";
+			cout << number << " ";
 		}
 	}
 	else
+	{
 		cout << "The vector is empty" << endl;
+	}
 }
 
 void CreateVector()
@@ -46,4 +50,3 @@ int main()
 	system("pause");
 	return 0;
 }
-

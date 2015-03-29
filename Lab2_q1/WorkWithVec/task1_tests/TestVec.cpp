@@ -1,8 +1,8 @@
-// TestWWM.cpp: определяет точку входа для консольного приложения.
+// task1_tests.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
-#include "../WorkWithMass/WorkWithMass.h"
+#include "../task1/WorkWithVec.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ bool VectorsAreEqual(vector<float> const& x, vector<float> const& y)
 	return x == y;
 }
 
-BOOST_AUTO_TEST_CASE(EmptyVectorProducesEmptyVector)
+BOOST_AUTO_TEST_CASE(ResultWithEmptyVector)
 {
 	vector<float> emptyVector;
 	ProcessVector(emptyVector);
