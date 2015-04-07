@@ -7,7 +7,7 @@ using namespace std;
 
 float min_elem;
 
-void MultArrOnMinElem(float &n)
+void MultArrOnMinElem(float & n)
 {
 	n *= min_elem;
 }
@@ -19,7 +19,7 @@ void ProcessVector(std::vector<float> & numbers)
 		min_elem = *min_element(numbers.begin(), numbers.end());
 		for_each(numbers.begin(), numbers.end(), MultArrOnMinElem);
 		sort(numbers.begin(), numbers.end());
-		for (auto &number : numbers)
+		for (auto number : numbers)
 		{
 			cout << number << " ";
 		}
@@ -30,23 +30,23 @@ void ProcessVector(std::vector<float> & numbers)
 	}
 }
 
-void CreateVector()
+void FillInVector(vector<float> & vectOfNum)
 {
 	float elem = 0;
 	size_t i = 0;
-	vector<float> vectOfNum;
 	cout << "Enter array of numbers(enter any letter in the end): ";
 	while (scanf("%f", &elem) == 1)
 	{
 		vectOfNum.push_back(elem);
 		i++;
 	}
-	ProcessVector(vectOfNum);
 }
 
 int main()
 {
-	CreateVector();
+	vector<float> vectOfNum;
+	FillInVector(vectOfNum);
+	ProcessVector(vectOfNum);
 	system("pause");
 	return 0;
 }

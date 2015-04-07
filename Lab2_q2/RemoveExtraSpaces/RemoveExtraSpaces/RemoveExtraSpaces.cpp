@@ -14,7 +14,7 @@ string RemoveSpaces(string &str)
 			i--;
 		}
 	}
-	cout << str << "There is no spaces" << endl;
+	cout << str << endl;
 	return str;
 }
 
