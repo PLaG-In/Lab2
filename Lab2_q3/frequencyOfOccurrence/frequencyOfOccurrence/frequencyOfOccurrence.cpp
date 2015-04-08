@@ -3,13 +3,22 @@
 
 #include "stdafx.h"
 #include <boost/algorithm/string.hpp>
-map<string, string> dictOfWords;
-int determineTheFrequency(vector <string> &vec)
+map<string, int> dictOfWords;
+void DetermineTheFrequency(vector <string> &vec)
 {
-	for (int i = 0; i < vec.size(); i++)
+	int i;
+	for (i = 0; i < vec.size(); i++)
 	{
-		dictOfWords[0] = vec[i];
+		char * vecWord = vec[i].c_str;
+		strlwr(vecWord);
+		auto pos = dictOfWords.find(vecWord);
+		if (pos != dictOfWords.end())
+			dictOfWords[vecWord]++;
+		else
+			dictOfWords[vecWord] = 1;
 	}
+	for (i = 0; i < dictOfWords.size(); i++)
+		cout << vec[i] << " " << dictOfWords[vec[i]] << endl;
 }
 
 int main(int argc, char* argv[])
@@ -20,7 +29,8 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 	boost::split(vecOfstr, argv[1], boost::is_any_of("\t "));
-	determineTheFrequency(vecOfstr);
+	DetermineTheFrequency(vecOfstr);
+	system("pause");
 	return 0;
 }
 
