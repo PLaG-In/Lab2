@@ -29,19 +29,19 @@ BOOST_AUTO_TEST_CASE(VectorWithoutPositivesDoesntChangeContent)
 {
 	vector<float> numbers = { -4, -1, -3 };
 	ProcessVector(numbers);
-	BOOST_CHECK(VectorsAreEqual(numbers, { ((-1) * (-4)), ((-3) * (-4)), ((-4) * (-4)) }));
+	BOOST_CHECK(VectorsAreEqual(numbers, { 4, 12, 16 }));
 }
 
 BOOST_AUTO_TEST_CASE(VectorWithOnePositiveElement)
 {
 	vector<float> numbers = { -1, 3 };
 	ProcessVector(numbers);
-	BOOST_CHECK(VectorsAreEqual(numbers, { (3 * (-1)), ((-1) * (-1)) }));
+	BOOST_CHECK(VectorsAreEqual(numbers, { -3, 1 }));
 }
 
 BOOST_AUTO_TEST_CASE(VectorWithSeveralPositiveElements)
 {
 	vector<float> numbers = { -1, 1, 2, 3 };
 	ProcessVector(numbers);
-	BOOST_CHECK(VectorsAreEqual(numbers, { (3 * (-1)), ((-1) * 2), ((-1) * 1), ((-1) * (-1)) }));
+	BOOST_CHECK(VectorsAreEqual(numbers, { -3, -2, -1, 1 }));
 }

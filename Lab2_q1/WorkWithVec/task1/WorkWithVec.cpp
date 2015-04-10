@@ -2,6 +2,8 @@
 #include "WorkWithVec.h"
 #include <algorithm>
 #include <numeric>
+#include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -12,7 +14,7 @@ void MultArrOnMinElem(float & n)
 	n *= min_elem;
 }
 
-void ProcessVector(std::vector<float> & numbers)
+void ProcessVector(vector<float> & numbers)
 {
 	if (!numbers.empty())
 	{
@@ -28,25 +30,4 @@ void ProcessVector(std::vector<float> & numbers)
 	{
 		cout << "The vector is empty" << endl;
 	}
-}
-
-void FillInVector(vector<float> & vectOfNum)
-{
-	float elem = 0;
-	size_t i = 0;
-	cout << "Enter array of numbers(enter any letter in the end): ";
-	while (scanf("%f", &elem) == 1)
-	{
-		vectOfNum.push_back(elem);
-		i++;
-	}
-}
-
-int main()
-{
-	vector<float> vectOfNum;
-	FillInVector(vectOfNum);
-	ProcessVector(vectOfNum);
-	system("pause");
-	return 0;
 }

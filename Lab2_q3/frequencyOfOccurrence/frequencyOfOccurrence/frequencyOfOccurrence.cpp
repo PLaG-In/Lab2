@@ -9,16 +9,18 @@ void DetermineTheFrequency(vector <string> &vec)
 	int i;
 	for (i = 0; i < vec.size(); i++)
 	{
-		char * vecWord = vec[i].c_str;
-		strlwr(vecWord);
-		auto pos = dictOfWords.find(vecWord);
+		auto pos = dictOfWords.find(vec[i]);
 		if (pos != dictOfWords.end())
-			dictOfWords[vecWord]++;
+			dictOfWords[vec[i]]++;
 		else
-			dictOfWords[vecWord] = 1;
+			dictOfWords[vec[i]] = 1;
 	}
-	for (i = 0; i < dictOfWords.size(); i++)
-		cout << vec[i] << " " << dictOfWords[vec[i]] << endl;
+	for (std::map<string, int>::const_iterator it = dictOfWords.begin();
+		it != dictOfWords.end();
+		++it)
+	{
+		cout << it->first << ": " << it->second << "\n";
+	}
 }
 
 int main(int argc, char* argv[])
