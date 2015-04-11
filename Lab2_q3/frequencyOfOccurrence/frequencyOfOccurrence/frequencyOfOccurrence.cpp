@@ -2,18 +2,28 @@
 //
 
 #include "stdafx.h"
+#include "frequencyOfOccurrence.h"
 #include <boost/algorithm/string.hpp>
-map<string, int> dictOfWords;
-void DetermineTheFrequency(vector <string> &vec)
+#include <iostream>
+#include <vector>
+#include <map>
+#include <cctype>
+#include <algorithm>
+
+using namespace std;
+
+void DetermineTheFrequency(vector<string> vec)
 {
-	int i;
-	for (i = 0; i < vec.size(); i++)
+	map<string, int> dictOfWords;
+	for (size_t i = 0; i < vec.size(); i++)
 	{
-		auto pos = dictOfWords.find(vec[i]);
+		string str = vec[i];
+		std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+		auto pos = dictOfWords.find(str);
 		if (pos != dictOfWords.end())
-			dictOfWords[vec[i]]++;
+			dictOfWords[str]++;
 		else
-			dictOfWords[vec[i]] = 1;
+			dictOfWords[str] = 1;
 	}
 	for (std::map<string, int>::const_iterator it = dictOfWords.begin();
 		it != dictOfWords.end();
@@ -23,16 +33,4 @@ void DetermineTheFrequency(vector <string> &vec)
 	}
 }
 
-int main(int argc, char* argv[])
-{
-	vector <string> vecOfstr;
-	if (argc != 2) {
-		cout << "Usage: lab2 [string] \n";
-		return 0;
-	}
-	boost::split(vecOfstr, argv[1], boost::is_any_of("\t "));
-	DetermineTheFrequency(vecOfstr);
-	system("pause");
-	return 0;
-}
 

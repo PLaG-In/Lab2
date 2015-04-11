@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "frequencyOfOccurrence", "frequencyOfOccurrence\frequencyOfOccurrence.vcxproj", "{A3979FAB-3F5A-405D-B13C-05148176DFB2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestFreq", "TestFreq\TestFreq.vcxproj", "{7D8E366A-0E4A-4889-BB63-B5FC2C88037F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{A3979FAB-3F5A-405D-B13C-05148176DFB2}.Debug|Win32.Build.0 = Debug|Win32
 		{A3979FAB-3F5A-405D-B13C-05148176DFB2}.Release|Win32.ActiveCfg = Release|Win32
 		{A3979FAB-3F5A-405D-B13C-05148176DFB2}.Release|Win32.Build.0 = Release|Win32
+		{7D8E366A-0E4A-4889-BB63-B5FC2C88037F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7D8E366A-0E4A-4889-BB63-B5FC2C88037F}.Debug|Win32.Build.0 = Debug|Win32
+		{7D8E366A-0E4A-4889-BB63-B5FC2C88037F}.Release|Win32.ActiveCfg = Release|Win32
+		{7D8E366A-0E4A-4889-BB63-B5FC2C88037F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
