@@ -2,11 +2,16 @@
 //
 
 #include "stdafx.h"
+#include "RemoveExtraSpaces.h"
+#include <stdio.h>
+#include <tchar.h>
+#include <iostream>
+#include <string>
+using namespace std;
 
-
-string RemoveSpaces(string &str)
+void RemoveSpaces(string & str)
 {
-	for (int i = 0; i < str.length(); i++)
+	for (size_t i = 0; i < str.length(); i++)
 	{
 	 if (str[0] == ' ' || (str[i] == ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0')))
 		{
@@ -15,18 +20,5 @@ string RemoveSpaces(string &str)
 		}
 	}
 	cout << str << endl;
-	return str;
-}
-
-int main(int argc, char* argv[])
-{
-	string str;
-	if (argc != 2) {
-		cout <<"Usage: lab1 [string] \n";
-		return 0;
-	}
-	str = argv[1];
-	RemoveSpaces(str);
-	return 0;
 }
 

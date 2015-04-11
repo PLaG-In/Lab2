@@ -1,9 +1,5 @@
 #include "stdafx.h"
 #include "WorkWithVec.h"
-#include <algorithm>
-#include <numeric>
-#include <vector>
-#include <iostream>
 
 using namespace std;
 

@@ -12,7 +12,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
 
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы

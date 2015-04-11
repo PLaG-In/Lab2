@@ -2,35 +2,46 @@
 //
 
 #include "stdafx.h"
+#include "../RemoveExtraSpaces/RemoveExtraSpaces.h"
 
 using namespace std;
 
-bool VectorsAreEqual(vector<double> const& x, vector<double> const& y)
+bool StringsAreEqual(string const& x, string const& y)
 {
 	return x == y;
 }
 
-BOOST_AUTO_TEST_CASE(EmptyVectorProducesEmptyVector)
+BOOST_AUTO_TEST_CASE(RemoveSpacesFromEmptyString)
 {
-	vector<double> emptyVector;
-	BOOST_CHECK(emptyVector.empty());
+	string emptyString;
+	RemoveSpaces(emptyString);
+	BOOST_CHECK(emptyString.empty());
 }
 
-BOOST_AUTO_TEST_CASE(VectorWithoutPositivesDoesntChangeContent)
+BOOST_AUTO_TEST_CASE(StringWithSpacesAtTheBeginning)
 {
-	vector<double> numbers = { -4, 0, -3 };
-	auto copy(numbers);
-	BOOST_CHECK(numbers == copy);
+	string str = "            <-space-";
+	RemoveSpaces(str);
+	BOOST_CHECK(StringsAreEqual(str, "<-space-"));
 }
 
-BOOST_AUTO_TEST_CASE(VectorWithOnePositiveElement)
+BOOST_AUTO_TEST_CASE(StringWithoutExtraSpaces)
 {
-	vector<double> numbers = { -1, 3 };
-	BOOST_CHECK(VectorsAreEqual(numbers, { 2, 6 }));
+	string str = "I am your FATHER!";
+	RemoveSpaces(str);
+	BOOST_CHECK(StringsAreEqual(str, "I am your FATHER!"));
 }
 
-BOOST_AUTO_TEST_CASE(VectorWithSeveralPositiveElements)
+BOOST_AUTO_TEST_CASE(StringWithSpacesAtTheEnd)
 {
-	vector<double> numbers = { -1, 1, 2, 3 };
-	BOOST_CHECK(VectorsAreEqual(numbers, { (-1 + 2), (1 + 2), (2 + 2), (3 + 2) }));
+	string str = "-space->           ";
+	RemoveSpaces(str);
+	BOOST_CHECK(StringsAreEqual(str, "-space->"));
+}
+
+BOOST_AUTO_TEST_CASE(StringWithExtraSpaces)
+{
+	string str = "             <-space->    <-space2->         ";
+	RemoveSpaces(str);
+	BOOST_CHECK(StringsAreEqual(str, "<-space-> <-space2->"));
 }
