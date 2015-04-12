@@ -13,3 +13,10 @@ BOOST_AUTO_TEST_CASE(ResultWithEmptyVector)
 	DetermineTheFrequency(emptyVector);
 	BOOST_CHECK(emptyVector.empty());
 }
+
+BOOST_AUTO_TEST_CASE(ResultWithEmptyVector)
+{
+	vector<string> emptyVector;
+	DetermineTheFrequency(emptyVector);
+	BOOST_CHECK(emptyVector.empty());
+}
