@@ -10,6 +10,7 @@ int main(int argc, char* argv[])
 	}
 	str = argv[1];
 	RemoveSpaces(str);
+	system("pause");
 	return 0;
 }
 

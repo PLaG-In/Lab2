@@ -1,3 +1,4 @@
 #pragma once
-
-void DetermineTheFrequency(std::vector<std::string> vec);
+#include <map>
+#include <string>
+std::map <std::string, int> DetermineTheFrequency(std::vector<std::string> vec);

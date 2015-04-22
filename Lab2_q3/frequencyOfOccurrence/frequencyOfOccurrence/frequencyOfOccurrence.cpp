@@ -12,7 +12,7 @@
 
 using namespace std;
 
-void DetermineTheFrequency(vector<string> vec)
+map <string, int> DetermineTheFrequency(vector<string> vec)
 {
 	map<string, int> dictOfWords;
 	for (size_t i = 0; i < vec.size(); i++)
@@ -31,6 +31,7 @@ void DetermineTheFrequency(vector<string> vec)
 	{
 		cout << it->first << ": " << it->second << "\n";
 	}
+	return dictOfWords;
 }
 
 
