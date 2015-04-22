@@ -16,23 +16,23 @@ BOOST_AUTO_TEST_CASE(ResultWithEmptyVector)
 	BOOST_CHECK(dictOfWords.empty());
 }
 
-BOOST_AUTO_TEST_CASE(ResultWithEmptyVector)
+BOOST_AUTO_TEST_CASE(VectorWithLowerCaseStrings)
 {
-	vector<string> emptyVector;
-	map<string, int> dictOfWords = DetermineTheFrequency(emptyVector);
-	BOOST_CHECK(dictOfWords.empty());
+	vector<string> vectOfWords = { "new", "bee", "bee", "bew" };
+	map<string, int> dictOfWords = DetermineTheFrequency(vectOfWords);
+	BOOST_CHECK(dictOfWords["bee"] == 2);
 }
 
-BOOST_AUTO_TEST_CASE(ResultWithEmptyVector)
+BOOST_AUTO_TEST_CASE(VectorWithDifferentCasesStrings)
 {
-	vector<string> emptyVector;
-	map<string, int> dictOfWords = DetermineTheFrequency(emptyVector);
-	BOOST_CHECK(dictOfWords.empty());
+	vector<string> vectOfWords = { "new", "bee", "bee", "bew", "BEE", "bEE", "Bee", "feel" };
+	map<string, int> dictOfWords = DetermineTheFrequency(vectOfWords);
+	BOOST_CHECK(dictOfWords["bee"] == 5);
 }
 
-BOOST_AUTO_TEST_CASE(ResultWithEmptyVector)
+BOOST_AUTO_TEST_CASE(VectorWithHigherCaseStrings)
 {
-	vector<string> emptyVector;
-	map<string, int> dictOfWords = DetermineTheFrequency(emptyVector);
-	BOOST_CHECK(dictOfWords.empty());
+	vector<string> vectOfWords = { "NEW", "BEE", "BEE", "BEW", "KAZ'MODAN" };
+	map<string, int> dictOfWords = DetermineTheFrequency(vectOfWords);
+	BOOST_CHECK(dictOfWords["bee"] == 2);
 }
