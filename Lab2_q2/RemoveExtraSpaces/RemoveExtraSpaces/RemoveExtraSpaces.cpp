@@ -11,13 +11,18 @@ using namespace std;
 
 void RemoveSpaces(string & str)
 {
+	string str1;
 	for (size_t i = 0; i < str.length(); i++)
 	{
-	 if (str[0] == ' ' || (str[i] == ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0')))
+		if (str[i] == ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
 		{
-			str.erase(i, 1);
-			i--;
+			continue;
+		}
+		else if (str1.length() > 0 || str[i] != ' ')
+		{
+			str1 += str[i];
 		}
 	}
+	str = str1;
 }
 
