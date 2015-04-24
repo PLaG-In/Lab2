@@ -19,6 +19,5 @@ void RemoveSpaces(string & str)
 			i--;
 		}
 	}
-	cout << str << endl;
 }
 
