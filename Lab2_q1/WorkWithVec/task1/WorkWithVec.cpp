@@ -15,14 +15,10 @@ void ProcessVector(vector<float> & numbers)
 {
 	if (!numbers.empty())
 	{
-		float min_elem = *min_element(numbers.begin(), numbers.end());
+		float minElem = *min_element(numbers.begin(), numbers.end());
 		transform(numbers.begin(), numbers.end(), numbers.begin(),
-			bind2nd(multiplies<float>(), min_elem));
+			bind2nd(multiplies<float>(), minElem));
 		sort(numbers.begin(), numbers.end());
-		for (auto number : numbers)
-		{
-			cout << number << " ";
-		}
 	}
 	else
 	{
