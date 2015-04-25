@@ -11,6 +11,7 @@
 #include <tchar.h>
 #include <set>
 #include <iostream>
+#pragma warning (disable: 4244)
 
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы

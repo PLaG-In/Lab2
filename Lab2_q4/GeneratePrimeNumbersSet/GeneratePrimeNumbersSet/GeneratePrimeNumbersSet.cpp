@@ -4,33 +4,35 @@
 #include "stdafx.h"
 #include <iostream>
 #include <set>
+#include <vector>
 
 using namespace std;
 
-std::set<int> GeneratePrimeNumSet(int upBound)
+set<__int64> GeneratePrimeNumSet(__int64 upBound)
 {
-	std::set<int> primeSet;
-	bool flag;
-	for (int num = 2; num < upBound; num++)
+	set<__int64> primeSet;
+	if (upBound > 0)
 	{
-		flag = true;
-		for (int secNum = 2; secNum < num; secNum++)
+		vector <bool> a(upBound + 1);
+		for (size_t i = 2; i < upBound; i++)
 		{
-			if (num % secNum == 0) 
-			{ 
-				flag = false; 
-				break; 
+			if (a[i] == false)
+			{
+				primeSet.insert(i);
+				if (i * i <= upBound)
+				{
+					for (size_t j = i * i; j <= upBound; j += i)
+					{
+						a[j] = true;
+					}
+				}
 			}
 		}
-		if (flag)
-		{
-			primeSet.insert(num);
-		}
 	}
-	for (auto i = primeSet.begin(); i != primeSet.end(); ++i)
-	{
-		std::cout << *i << " ";
-	}
+	//for (auto i = primeSet.begin(); i != primeSet.end(); ++i)
+	//{
+	//	std::cout << *i << " ";
+	//}
 	return primeSet;
 }
 

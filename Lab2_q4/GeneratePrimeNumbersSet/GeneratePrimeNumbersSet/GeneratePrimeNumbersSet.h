@@ -1,3 +1,3 @@
 #pragma once
 #include <set>
-std::set<int> GeneratePrimeNumSet(int upBound);
+std::set<__int64> GeneratePrimeNumSet(__int64 upBound);

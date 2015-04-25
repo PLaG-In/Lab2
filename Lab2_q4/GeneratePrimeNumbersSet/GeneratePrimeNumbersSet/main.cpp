@@ -12,7 +12,8 @@ int main(int argc, char* argv[])
 		cout << "Usage: lab2 [int] \n";
 		return 0;
 	}
-	int upperBound = atoi(argv[1]);
+	__int64 upperBound;
+	upperBound = atoi(argv[1]);
 	GeneratePrimeNumSet(upperBound);
 	system("pause");
 }
