@@ -9,25 +9,20 @@
 #include <map>
 #include <cctype>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
-map <string, int> DetermineTheFrequency(vector<string> &vec)
+map <string, int> DetermineTheFrequency(string &str0)
 {
+	std::istringstream ist(str0);
 	map<string, int> dictOfWords;
-	for (size_t i = 0; i < vec.size(); i++)
+	string str;
+	while (ist >> str)
 	{
-		string str = vec[i];
 		std::transform(str.begin(), str.end(), str.begin(), ::tolower);
 		++dictOfWords[str];
 	}
-	for (std::map<string, int>::const_iterator it = dictOfWords.begin();
-		it != dictOfWords.end();
-		++it)
-	{
-		cout << it->first << ": " << it->second << "\n";
-	}
-
 	return dictOfWords;
 }
 

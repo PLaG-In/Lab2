@@ -9,13 +9,12 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	vector <string> vecOfstr;
 	if (argc != 2) {
 		cout << "Usage: lab2 [string] \n";
 		return 0;
 	}
-	boost::split(vecOfstr, argv[1], boost::is_any_of("\t "));
-	DetermineTheFrequency(vecOfstr);
+	string str = argv[1];
+	DetermineTheFrequency(str);
 	system("pause");
 	return 0;
 }
