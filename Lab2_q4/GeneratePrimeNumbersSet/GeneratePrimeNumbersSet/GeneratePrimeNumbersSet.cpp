@@ -8,9 +8,9 @@
 
 using namespace std;
 
-set<__int64> GeneratePrimeNumSet(__int64 upBound)
+set<int> GeneratePrimeNumSet(int upBound)
 {
-	set<__int64> primeSet;
+	set<int> primeSet;
 	if (upBound > 0)
 	{
 		vector <bool> a(upBound + 1);
@@ -19,7 +19,7 @@ set<__int64> GeneratePrimeNumSet(__int64 upBound)
 			if (a[i] == false)
 			{
 				primeSet.insert(i);
-				if (i * i <= upBound)
+				if (i <= upBound / i)
 				{
 					for (size_t j = i * i; j <= upBound; j += i)
 					{
@@ -29,10 +29,6 @@ set<__int64> GeneratePrimeNumSet(__int64 upBound)
 			}
 		}
 	}
-	//for (auto i = primeSet.begin(); i != primeSet.end(); ++i)
-	//{
-	//	std::cout << *i << " ";
-	//}
 	return primeSet;
 }
 
