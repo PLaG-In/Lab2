@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void ProcessVector(vector<float> & numbers)
+vector<float> ProcessVector(vector<float> & numbers)
 {
 	if (!numbers.empty())
 	{
@@ -20,8 +20,5 @@ void ProcessVector(vector<float> & numbers)
 			bind2nd(multiplies<float>(), minElem));
 		sort(numbers.begin(), numbers.end());
 	}
-	else
-	{
-		cout << "The vector is empty" << endl;
-	}
+	return numbers;
 }

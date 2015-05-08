@@ -1,4 +1,4 @@
 #pragma once
 
-void ProcessVector(std::vector<float> & numbers);
+std::vector<float> ProcessVector(std::vector<float> & numbers);
 void MultArrOnMinElem(float & n);
