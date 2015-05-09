@@ -9,20 +9,23 @@
 #include <string>
 using namespace std;
 
-void RemoveSpaces(string & str)
+string RemoveSpaces(string & str)
 {
+	bool space = true;
 	string str1;
+	str1.reserve(str.length());
 	for (size_t i = 0; i < str.length(); i++)
 	{
-		if (str[i] == ' ' && (str[i + 1] == ' ' || str[i + 1] == '\0'))
+		if ((i + 1 <= str.length()) && (str[i] == ' ') && (str[i + 1] == ' ' || str[i + 1] == '\0' || space))
 		{
 			continue;
 		}
-		else if (str1.length() > 0 || str[i] != ' ')
+		else
 		{
+			space = false;
 			str1 += str[i];
 		}
 	}
-	str = str1;
+	return str1;
 }
 

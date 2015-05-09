@@ -1,3 +1,3 @@
 #pragma once
 
-void RemoveSpaces(std::string & str);
+std::string RemoveSpaces(std::string & str);

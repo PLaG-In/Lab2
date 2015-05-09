@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 	str = argv[1];
-	RemoveSpaces(str);
+	cout << RemoveSpaces(str);
 	system("pause");
 	return 0;
 }
