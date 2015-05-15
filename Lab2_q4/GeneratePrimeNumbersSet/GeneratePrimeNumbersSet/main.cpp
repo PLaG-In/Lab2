@@ -6,15 +6,18 @@
 
 using namespace std;
 
-int main(int argc, char* argv[])
+int main()
 {
 	set<int> primeSet;
-	if (argc != 2) {
-		cout << "Usage: lab2 [int] \n";
-		return 0;
-	}
+	cout << "Input upper bound: ";
 	int upperBound;
-	upperBound = atoi(argv[1]);
+	cin >> upperBound;
+	if (cin.fail())
+	{
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cerr << "Incorrect input!\n";
+	}
 	primeSet = GeneratePrimeNumSet(upperBound);
 	for (auto i = primeSet.begin(); i != primeSet.end(); ++i)
 	{
