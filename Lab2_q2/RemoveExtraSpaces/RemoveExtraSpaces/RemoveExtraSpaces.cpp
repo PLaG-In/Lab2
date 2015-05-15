@@ -16,7 +16,8 @@ string RemoveSpaces(string & str)
 	str1.reserve(str.length());
 	for (size_t i = 0; i < str.length(); i++)
 	{
-		if ((i + 1 <= str.length()) && (str[i] == ' ') && (str[i + 1] == ' ' || str[i + 1] == '\0' || space))
+		if ((i + 1 <= str.length()) && (str[i] == ' ') 
+			&& (str[i + 1] == ' ' || str[i + 1] == '\0' || space))
 		{
 			continue;
 		}
