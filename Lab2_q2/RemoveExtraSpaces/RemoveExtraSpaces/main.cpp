@@ -4,11 +4,8 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	string str;
-	if (argc != 2) {
-		cout << "Usage: lab1 [string] \n";
-		return 0;
-	}
-	str = argv[1];
+	cout << "Input string: ";
+	getline(cin, str);
 	cout << RemoveSpaces(str);
 	system("pause");
 	return 0;
