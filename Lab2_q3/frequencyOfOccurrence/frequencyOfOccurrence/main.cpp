@@ -9,12 +9,14 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	if (argc != 2) {
-		cout << "Usage: lab2 [string] \n";
-		return 0;
+	string str;
+	getline(cin, str);
+	map<string, int> dictOfWords;
+	dictOfWords = DetermineTheFrequency(str);
+	for (auto it = dictOfWords.begin(); it != dictOfWords.end(); it++)
+	{
+		std::cout << it->first << ' ' << it->second << '\n';
 	}
-	string str = argv[1];
-	DetermineTheFrequency(str);
 	system("pause");
 	return 0;
 }

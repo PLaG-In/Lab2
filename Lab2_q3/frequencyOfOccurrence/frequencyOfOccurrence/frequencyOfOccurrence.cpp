@@ -13,7 +13,7 @@
 
 using namespace std;
 
-map <string, int> DetermineTheFrequency(string &str0)
+map <string, int> DetermineTheFrequency(const string &str0)
 {
 	std::istringstream ist(str0);
 	map<string, int> dictOfWords;
